@@ -102,7 +102,7 @@
 
 ## 相关文档
 
-涂鸦Demo中心：https://developer.tuya.com/cn/demo/
+涂鸦Demo中心：https://developer.tuya.com/demo
 
 
 
@@ -110,6 +110,7 @@
 
 您可以通过以下方法获得涂鸦的支持:
 
-- 开发者中心：https://developer.tuya.com/cn/
-- 帮助中心: https://support.tuya.com/en/help
+- 开发者中心：https://developer.tuya.com
+- 帮助中心: https://support.tuya.com/help
 - 技术支持工单中心: [https://service.console.tuya.com](https://service.console.tuya.com/) 
+
