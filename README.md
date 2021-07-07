@@ -1,112 +1,115 @@
-# Tuya IoTOS Embedded Mcu Demo Wifi Ble GD32_OPT3004
+# Tuya IoTOS Embedded Wi-Fi & Bluetooth Ambient Light Sensor
 
 [English](./README.md) | [中文](./README_zh.md)
 
-## Introduction  
+## Overview
 
-This Demo uses the Tuya smart cloud platform, Tuya smart APP, OPT3004and IoTOS Embedded MCU SDK to realize a illuminance acquisition.
+In this demo, we will show you how to develop with the MCU SDK to enable an OPT3004 ambient light sensor to connect to the Tuya IoT Cloud with the Tuya Smart app.
 
-The implemented features include:
+Features:
 
-+ Illuminance Acquisition
-
-
-## Quick start  
-
-### Compile & Burn
-+ Download Tuya IoTOS Embeded Code
-+ Execute the Project.uvprojx file
-+ Click Compile in the software and complete the download
++ Collect light intensity
 
 
-### File introduction 
+
+
+
+## Get started
+
+### Compile and flash
++ Download [Tuya IoTOS Embedded MCU SDK](https://registry.code.tuya-inc.top/hardware_developer/tuya-iotos-embeded-mcu-demo-4g-vending-machine/tree/master).
+
++ Run `Project.uvprojx`
+
++ Click **Compile** on the software to download the code.
+
+
+### File introduction
 
 ```
 ├── Application
-│   ├── main.c
-│   ├── gd32e23x_it.c
-│   ├── systick.c
-│   ├── gd32e23x_it.h
-│   ├── systick.h
-│   ├── gd32e23x_libopt.h
+│   ├── main.c
+│   ├── gd32e23x_it.c
+│   ├── systick.c
+│   ├── gd32e23x_it.h
+│   ├── systick.h
+│   ├── gd32e23x_libopt.h
 ├── GD32E23x_Firmware_Library
-│   ├── CMSIS
+│   ├── CMSIS
         ├── Include
-           │   ├──gd32e23x.h
-           │   ├──system_gd32e23x.h
+           │   ├──gd32e23x.h
+           │   ├──system_gd32e23x.h
         ├── Source
-           │   ├──startup_gd32e23x.s
-           │   ├──system_gd32e23x.h        
-│   ├── GD32E23x_standard_peripheral
+           │   ├──startup_gd32e23x.s
+           │   ├──system_gd32e23x.h        
+│   ├── GD32E23x_standard_peripheral
         ├── Include
         ├── Source
 ├──User
-│   ├── connect_wifi.c
-│   ├── delay.c
-│   ├── delay.h
-│   ├──led.c
-│   ├──led.h
-│   ├── myiic.c
-│   ├── myiic.h
-│   ├── opt3004.c
-│   ├── opt3004.h
-│   ├── usart.c
-│   ├── usart.h
+│   ├── connect_wifi.c
+│   ├── delay.c
+│   ├── delay.h
+│   ├──led.c
+│   ├──led.h
+│   ├── myiic.c
+│   ├── myiic.h
+│   ├── opt3004.c
+│   ├── opt3004.h
+│   ├── usart.c
+│   ├── usart.h
 └── MCU_SDK
-    ├── mcu_api.c
-    ├── mcu_api.h
-    ├── protocol.c
-    ├── protocol.h
+    ├── mcu_api.c
+    ├── mcu_api.h
+    ├── protocol.c
+    ├── protocol.h
     ├── system.c
-    ├── system.h
+    ├── system.h
     └── wifi.h
+
 ```
 
 
 
 ### Demo entry
 
-Entry file：main.c
+Entry file: `main.c`
 
-Important functions：main()
+Main function: `main()`
 
-+ Initialize and configure MCU USART,IIC,OPT3004 sensor, etc. All events are polled and judged in while(1)。
-
-
-
-
-### DataPoint related
-
-+ DP point processing: mcu_dp_value_update()
-
-| function name | unsigned char mcu_dp_value_update(unsigned char dpid,unsigned long value) |
-| ------------- | ------------------------------------------------------------ |
-| dpid          | DP ID number                                                 |
-| value         | DP data                                                      |
-| Return        | SUCCESS: Success ERROR: Failure                              |
++ Initialize and configure USART and I2C of the MCU as well as OPT3004 sensor. All events are polled and determined in `while(1)`.
 
 
 
-### I/O List  
 
-|   OPT3004   |  UASRT0  | UASRT1  |
+### Data point (DP)
+
++ Process DP data: `mcu_dp_value_update()`
+
+| Function name | unsigned char mcu_dp_value_update(unsigned char dpid,unsigned long value) |
+| ------ | ------------------------------------------------------------ |
+| dpid | DP ID |
+| value | DP data |
+| Return | SUCCESS: DP data reporting succeeded. ERROR: DP data reporting failed. |
+
+
+
+### Pin configuration
+
+| OPT3004 | UASRT0 | UASRT1 |
 | :---------: | :------: | :-----: |
-| PB0 IIC_SCL | PA9 TXD  | PA2 TXD |
+| PB0 IIC_SCL | PA9 TXD | PA2 TXD |
 | PB1 IIC_SDA | PA10 RXD | PA3 RXD |
 
+## Reference
 
-
-## Related Documents
-
-  Tuya Demo Center: https://developer.tuya.com/demo
+[Tuya Project Hub](https://developer.tuya.com/demo)
 
 
 
 ## Technical Support
 
-  You can get support for Tuya by using the following methods:
+You can get support from Tuya with the following methods:
 
-- Developer Center: https://developer.tuya.com
-- Help Center: https://support.tuya.com/help
-- Technical Support Work Order Center: [https://service.console.tuya.com](https://service.console.tuya.com/) 
-
+- [Tuya IoT Developer Platform](https://developer.tuya.com/en/)
+- [Help Center](https://support.tuya.com/en/help)
+- [Service & Support](https://service.console.tuya.com)[](https://service.console.tuya.com/)
